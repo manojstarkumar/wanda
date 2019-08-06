@@ -7,6 +7,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.avacado.stupidapps.wanda.domain.Users;
@@ -19,6 +20,9 @@ public class FcmService
   @Autowired
   UsersService usersService;
   
+  @Value("${FCM_AUTH_STRING}")
+  private String fcmAuthString;
+  
   public boolean postToFcm(String destination, String textMessage) throws IOException {
     Users currentUser = usersService.getCurrentUser();
     textMessage = textMessage.substring(0, Math.min(textMessage.length(), 159));
@@ -29,7 +33,7 @@ public class FcmService
     HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
     con.setRequestMethod("POST");
-    con.setRequestProperty("Authorization", Constants.FCM_AUTH_STRING);
+    con.setRequestProperty("Authorization", fcmAuthString);
     con.setRequestProperty("Content-Type", "application/json");
 
     

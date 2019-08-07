@@ -1,0 +1,110 @@
+<html class="" lang="en"><head><meta charset="UTF-8">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style class="cp-pen-styles">
+
+#codes{
+  border-bottom: 1px solid #5F5F5F;
+  background-color: #34312c;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+#codes>li {
+  padding: 8px 0px 8px 8px;
+}
+#codes>li>a {
+  position: relative;
+  display: block;
+  padding: 3px 15px;
+  border-radius: 4px;
+  color: #fefdf9;
+  cursor: pointer !important;
+}
+#codes>li>a:active,
+#codes>li>a:focus,
+#codes>li>a:hover,
+#codes>li.active>a,
+#codes>li.active>a:focus,
+#codes>li.active>a:hover{
+  position: relative;
+  display: block;
+  padding: 3px 15px;
+  border-radius: 4px;
+  color: #fdb839;
+  cursor: default;
+  background-color: #655F56;
+  border: 1px solid #3e3a33;
+  border-bottom-color: transparent;
+}
+/*Override prettify design*/
+pre, code{
+  white-space: pre;
+  border: 0 !important;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* UXCam scheme for google prettify*/
+pre.prettyprint { display: block; background-color: #3e3a33;}
+pre .nocode { background-color: none; color: #000; }
+pre .str { color: #fdb839; } /* string */
+pre .kwd { color: #fdb839; }
+pre .com { color: #B3B3B3; } /* commen */
+pre .typ { color: #fdb839; } /* type */
+pre .lit { color: #cd5c5c; } /* literal */
+pre .pun { color: #fff; }    /* punctuation */
+pre .pln { color: #fdb839; }    /* plaintext */
+pre .tag { color: #fdb839; } /* html/xml tag */
+pre .atn { color: #bdb76b; } /* attribute name */
+pre .atv { color: #fdb839; } /* attribute value */
+pre .dec { color: #fdb839; } /* decimal */
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { 
+  margin-top: 0; 
+  margin-bottom: 0; 
+  color: #AEAEAE; 
+} 
+/* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L4,li.L5,li.L6,li.L7,li.L8 { 
+  list-style-type: decimal !important; 
+}
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { 
+  background-color: transparent !important;
+}
+.linenums li{
+  border-left: 1px solid #656565;
+}
+
+@media print {
+  pre .str, code .str { color: #060; }
+  pre .kwd, code .kwd { color: #006; }
+  pre .com, code .com { color: #600; }
+  pre .typ, code .typ { color: #404; }
+  pre .lit, code .lit { color: #044; }
+  pre .pun, code .pun { color: #440; }
+  pre .pln, code .pln { color: #000; }
+  pre .tag, code .tag { color: #006; }
+  pre .atn, code .atn { color: #404; }
+  pre .atv, code .atv { color: #060; }
+}</style></head><body>
+<div id="wrapper" class="col-md-6">
+
+<ul id="codes" class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active">
+<a href="#tab-1-content" aria-controls="home" role="tab" data-toggle="tab">Tab 1</a></li>
+<li role="presentation">
+<a href="#tab-2-content" aria-controls="profile" role="tab" data-toggle="tab">Tab 2</a>
+</li>
+</ul>
+
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="tab-1-content">
+<pre class="prettyprint linenums lang-java prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">  </span><span class="com">// Everything is controlled with id="codes"</span></li><li class="L1"><span class="pln">  </span><span class="com">// lang-java class is added to &lt;pre&gt; to read # tag</span></li><li class="L2"><span class="pln">  </span><span class="pun">&lt;</span><span class="pln">ul id</span><span class="pun">=</span><span class="str">"codes"</span><span class="pln"> </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"nav nav-tabs"</span><span class="pln"> role</span><span class="pun">=</span><span class="str">"tablist"</span><span class="pun">&gt;</span></li><li class="L3"><span class="pln">    </span><span class="pun">.......</span></li><li class="L4"><span class="pln">  </span><span class="pun">&lt;/</span><span class="pln">ul</span><span class="pun">&gt;</span></li><li class="L5"><span class="pln">  </span><span class="com">//@Override prettyprint with custom colours</span></li><li class="L6"><span class="pln">  </span><span class="com">//Change the colour codes of the codes in here.</span></li><li class="L7"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">str </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">fdb839</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* string   */</span></li><li class="L8"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">kwd </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">fdb839</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li><li class="L9"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">com </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">B3B3B3</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* comment  */</span></li><li class="L0"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">typ </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">fdb839</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* type     */</span></li><li class="L1"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">lit </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">cd5c5c</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* literal  */</span></li><li class="L2"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">pun </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">fdb839</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* punctuation */</span></li><li class="L3"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">pln </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">fdb839</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* plaintext */</span></li><li class="L4"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">tag </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">fdb839</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* html/xml tag     */</span></li><li class="L5"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">atn </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">bdb76b</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* attribute name   */</span></li><li class="L6"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">atv </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">fdb839</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* attribute value  */</span></li><li class="L7"><span class="pln">  pre </span><span class="pun">.</span><span class="pln">dec </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> </span><span class="pun">#</span><span class="pln">fdb839</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">/* decimal          */</span></li><li class="L8"><span class="pln">    </span></li></ol></pre>
+</div>
+<div role="tabpanel" class="tab-pane" id="tab-2-content">
+<pre class="prettyprint linenums lang-java prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">  </span><span class="com">// To show line numbers add linenums class to &lt;pre&gt;</span></li><li class="L1"><span class="pln">  </span><span class="com">// Change the line border color </span></li><li class="L2"><span class="pln">  </span><span class="pun">.</span><span class="pln">linenums li</span><span class="pun">{</span></li><li class="L3"><span class="pln">     border</span><span class="pun">-</span><span class="pln">left</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid colour</span><span class="pun">;</span></li><li class="L4"><span class="pln">  </span><span class="pun">}</span></li><li class="L5"><span class="pln">  </span></li><li class="L6"><span class="pln">  </span></li><li class="L7"><span class="pln">  </span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">    </span></li><li class="L1"><span class="pln">  </span></li><li class="L2"><span class="pln">  </span></li><li class="L3"><span class="pln">  </span></li><li class="L4"><span class="pln">  </span></li><li class="L5"><span class="pln">  </span></li><li class="L6"><span class="pln">  </span></li><li class="L7"><span class="pln">  </span></li><li class="L8"><span class="pln">      </span></li></ol></pre>
+</div>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body></html>

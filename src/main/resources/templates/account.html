@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<title>Wanda - Account info</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/resources/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/resources/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/resources/css/main.css">
+	
+	<style>
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+</style>
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100" style="position: relative;">
+				<input type="image" width="40px" height="40px" src="/resources/images/logout.png" alt="Log out" onclick="logout()" style="position:absolute; top:25px; right:25px; text-align:right;"/>
+					<span class="login100-form-title">
+						Welcome
+					</span>
+					<div style="width: 100%;padding-top: 35px;">Email: <span th:text="${useremail}"></span></div>
+					<div style="width: 100%;padding-top: 35px;">
+						<div style="width:80%;word-wrap:break-word;display:block;float:left">API Key: <span id="api_key_span" th:text="${apiKey}"></span></div>
+						<span style="width:20%;float: right;margin-top: 35px;">
+							<input style="float: right;" type="image" width="30px" height="30px" name="imgbtn" src="/resources/images/copy.png" alt="Copy to Clipboard" onclick="copyKey()">
+						</span>
+						<!-- <span><img width="30px" height="30px" src="/resources/images/copy.png"/></span> -->
+					</div>
+					<div class="text-center p-t-136" style="width: 100%;">
+							<b><a href="/#three" target="_blank" style="text-decoration: underline;">Check the samples</a></b> for instructions on how to send SMS.
+					</div>
+					<div th:if="${deviceRegistered}" class="text-center p-t-50" style="width: 100%;font-size: 10px;">
+							Your device is registered. Messages posted will be sent via the cellular network and phone number available on the registered device
+							<br />Standard data &amp; message rates will apply
+					</div>
+					<div th:if="${!deviceRegistered}" class="text-center p-t-50" style="width: 100%;font-size: 10px;">
+							No device is registered to your account. Download the app on the device from which you wish to send messages.
+							<br />Standard data &amp; message rates will apply
+					</div>
+			</div>
+		</div>
+	</div>
+	<script src="/resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/resources/vendor/bootstrap/js/popper.js"></script>
+	<script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/resources/vendor/select2/select2.min.js"></script>
+	<script src="/resources/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+	function copyKey() {
+		var copyText = document.getElementById("api_key_span").innerHTML;
+		var textarea = document.createElement('input');
+		  textarea.id = 'temp_element';
+		  textarea.style.height = 0;
+		  document.body.appendChild(textarea);
+		  textarea.value = copyText;
+		  var selector = document.querySelector('#temp_element');
+		  console.log(selector);
+		  selector.select();
+		  document.execCommand('copy');
+		  document.body.removeChild(textarea);
+		  var x = document.getElementById("snackbar");
+		  x.className = "show";
+		  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+	}
+	
+	function logout() {
+		window.location.href ="/logout"
+	}
+	</script>
+	<script src="/resources/js/main.js"></script>
+	<div id="snackbar">API Key copied to clipboard</div>
+</body>
+</html>

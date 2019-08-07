@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Error :(</title>
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400" rel="stylesheet">
+    <link href="/resources/css/error.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body class="loading">
+<div class="error-502__container">
+	<div class="error-502">
+		<div class="error-502__text">
+			<h1>Something is not right here... <b>:(</b></h1>
+			<h2><p>You can go back to our <a href="/">Homepage</a>.</p></h2>
+		</div>
+	</div>
+</div>
+<div class="gears">
+    <div class="gear one">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear two">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear three">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</div>
+
+<div class="error-502__container">
+	<div class="error-502">
+		<div class="error-502__text">
+			<h2><p><span th:text="${status}"></span> - <span th:text="${error}"></span></p></h2>
+			<h2><p><span th:text="${message}"></span> - <span th:text="${exception}"></span></p></h2>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+    $(function() {
+        setTimeout(function(){
+            $('body').removeClass('loading');
+        }, 1000);
+    });
+</script>
+</body>
+</html>
+

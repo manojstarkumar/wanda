@@ -21,9 +21,9 @@ public class UsersService
   
   BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(); 
   
-  public boolean saveUser(String email, String password) {
+  public Users saveUser(String email, String password) {
     if(usersRepo.existsById(email))
-      return false;
+      return null;
     String encodedPassword = bCryptPasswordEncoder.encode(password);
     Users user = new Users();
     user.setUserName(email);
@@ -32,7 +32,7 @@ public class UsersService
     String apiKey = getUniqueApiKey();
     user.setApiKey(apiKey);
     usersRepo.save(user);
-    return true;
+    return user;
   }
 
   private String getUniqueApiKey()

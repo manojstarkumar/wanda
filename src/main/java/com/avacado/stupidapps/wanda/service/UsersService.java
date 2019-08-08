@@ -3,6 +3,7 @@ package com.avacado.stupidapps.wanda.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -48,15 +49,21 @@ public class UsersService
   public Users getCurrentUser()
   {
     String currentUserName = null;
-    if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof User) {
-      currentUserName = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+    if(SecurityContextHolder.getContext().getAuthentication() != null &&
+        SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
+        !(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken)) {
+      Object currentPrincipal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+      if(currentPrincipal instanceof User) {
+        currentUserName = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+      }
+      else if(currentPrincipal instanceof Users) {
+        currentUserName = ((Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserName();
+      }
+      return usersRepo.findById(currentUserName).get();
     }
-    else if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof Users) {
-      currentUserName = ((Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUserName();
-    }
-    return usersRepo.findById(currentUserName).get();
+    return null;
   }
-  
+
   public Users findUserByUserNameAndPAssword(String userName, String password) {
     Optional<Users> user = usersRepo.findById(userName);
     if(user.isPresent()) {

@@ -56,6 +56,9 @@ public class WebHomeController
   
   @RequestMapping("/login")
   public String login() {
+    if(userService.getCurrentUser() != null) {
+      return "redirect:/account";
+    }
     return "login";
   }
   
